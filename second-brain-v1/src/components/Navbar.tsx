@@ -2,6 +2,7 @@ import React from "react";
 import { AppBar, Container, Stack, Toolbar, Typography } from "@mui/material";
 import { CiMenuBurger } from "react-icons/ci";
 import { useTheme, Theme } from "@mui/material/styles";
+import {orange } from "@mui/material/colors";
 
 type NavbarProps = {
   open: boolean;
@@ -10,24 +11,27 @@ type NavbarProps = {
 
 const themedStyles = (theme: Theme) => {
   return {
-    appBar:{
-      zIndex:theme.zIndex.drawer +1
+    appBar: {
+      zIndex: theme.zIndex.drawer + 1
     }
-  }
+  };
 };
 
 const Navbar = ({ open, setOpen }: NavbarProps) => {
-
-  const theme =useTheme();
+  const theme = useTheme();
 
   return (
     <div>
-      <AppBar position="fixed" sx={themedStyles(theme).appBar}>
+      <AppBar
+        position="fixed"
+        component={"nav"}
+        sx={themedStyles(theme).appBar}
+      >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Stack
               gap={1}
-              sx={{ 
+              sx={{
                 display: "flex",
                 flexDirection: "row"
               }}
@@ -39,7 +43,7 @@ const Navbar = ({ open, setOpen }: NavbarProps) => {
                   marginRight: "2rem",
                   marginTop: "0.5rem",
                   fontWeight: "2rem",
-                  height: "2rem"
+                  height: "2rem",
                 }}
                 onClick={() => setOpen(!open)}
               />
@@ -57,7 +61,10 @@ const Navbar = ({ open, setOpen }: NavbarProps) => {
                   letterSpacing: ".3rem",
                   color: "white",
                   textDecoration: "none",
-                  textTransform: "uppercase"
+                  textTransform: "uppercase",
+                  "&:hover": {
+                    color: "orange"
+                  }
                 }}
               >
                 second brain

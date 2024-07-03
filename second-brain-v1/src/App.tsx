@@ -3,6 +3,8 @@ import RootLayout from "./pages/Layout";
 import ErrorPage from "./pages/Error";
 import { Bookmarks, Youtube, Courses, Para } from "./pages";
 import Home from "./pages/Home";
+import { ThemeProvider } from "@mui/material/styles";
+import { MyTheme } from "./theme/MyTheme";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <ThemeProvider theme={MyTheme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </>
   );
 }

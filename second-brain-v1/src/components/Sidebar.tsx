@@ -62,6 +62,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
           sx: simpleStyles.drawerPaper,
           elevation: 9
         }}
+        variant="myVariant"
       >
         <Toolbar />
         <Box sx={simpleStyles.drawer} role="presentation">
@@ -69,9 +70,15 @@ const Sidebar = ({ open }: { open: boolean }) => {
             {LinksToPages.map(({ path, label, icon }) => {
               return (
                 <NavLink to={path}>
-                  <ListItem key={label} disablePadding>
+                  <ListItem
+                    key={label}
+                    sx={{
+                      "&:hover": { color: "orange" },
+                      fontWeight: 200
+                    }}
+                  >
                     <ListItemIcon>{icon}</ListItemIcon>
-                    <ListItemText primary={label} />
+                    <ListItemText primary={label} sx={{ letterSpacing: 0.5 }} />
                   </ListItem>
                 </NavLink>
               );
