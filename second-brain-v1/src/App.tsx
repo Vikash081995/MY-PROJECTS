@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/Layout";
 import ErrorPage from "./pages/Error";
 import { Bookmarks, Youtube, Courses, Para } from "./pages";
-import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navbar />
+        element: <Home />
       },
       {
         path: "/bookmarks",

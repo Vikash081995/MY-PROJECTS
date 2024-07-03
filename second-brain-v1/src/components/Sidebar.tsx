@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Drawer,
@@ -6,7 +5,8 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  Toolbar
 } from "@mui/material";
 import { IoBookmarks, IoBookSharp } from "react-icons/io5";
 import { GrProjects } from "react-icons/gr";
@@ -40,17 +40,31 @@ const LinksToPages: LinksToPageType = [
     icon: <FaYoutube />
   }
 ];
-const Sidebar = () => {
-  const [open, setOpen] = useState<boolean>(true);
 
-  const toggleDrawer = (toggle: boolean) => {
-    setOpen(toggle);
-  };
+const drawerWidth = 240;
 
+const simpleStyles = {
+  drawer: {
+    width: drawerWidth
+  },
+  drawerPaper: {
+    width: drawerWidth,
+    backgroundColor: "rgba(120,120,120,0)"
+  }
+};
+const Sidebar = ({ open }: { open: boolean }) => {
   return (
     <div>
-      <Drawer open={open} onClose={() => toggleDrawer(false)}>
-        <Box sx={{ width: 250 }} role="presentation">
+      <Drawer
+        open={open}
+        hideBackdrop={true}
+        PaperProps={{
+          sx: simpleStyles.drawerPaper,
+          elevation: 9
+        }}
+      >
+        <Toolbar />
+        <Box sx={simpleStyles.drawer} role="presentation">
           <List>
             {LinksToPages.map(({ path, label, icon }) => {
               return (
