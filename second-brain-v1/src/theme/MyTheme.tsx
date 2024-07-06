@@ -10,6 +10,12 @@ declare module "@mui/material/styles/createPalette" {
   }
 }
 
+declare module "@mui/material/Button" {
+  interface ButtonPropsVariantOverrides {
+    beautiful: true;
+  }
+}
+
 declare module "@mui/material/Drawer" {
   interface DrawerPropsVariantOverrides {
     permanent: true;
@@ -18,34 +24,43 @@ declare module "@mui/material/Drawer" {
     myVariant: true;
   }
 }
-
 const MyTheme = createTheme({
   palette: {
     primary: {
-      main: "#024852",
-      light: "#5ed3f0",
-      dark: "darkOrange"
+      main: "#18842c",
+      light: "#3aab58",
+      dark: "darkgreen"
     },
     grid: {
       main: "rgba(0,0,0,0.1)",
-      dark: "rgba(0,0,0,0.2)"
+      dark: "rgba(0,0,0,0.2"
     }
   },
   components: {
-    MuiDrawer: {
+    MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: "rgba(2, 88, 60, 0.1)"
+          border: "1px solid orange"
         }
       },
       variants: [
         {
-          props: { variant: "myVariant" },
+          props: { variant: "beautiful" },
           style: {
-            backgroundColor: "rgba(7, 85, 75, 0.2)"
+            fontStyle: "italic",
+            border: "4px solid lightpink"
           }
         }
       ]
+    }
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1280,
+      xl: 1500
     }
   }
 });
