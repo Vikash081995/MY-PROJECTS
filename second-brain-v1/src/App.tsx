@@ -1,7 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/Layout";
 import ErrorPage from "./pages/Error";
-import { Bookmarks, Youtube, Courses, Para } from "./pages";
+import {
+  Bookmarks,
+  Youtube,
+  Courses,
+  Para,
+  Preview,
+  Login,
+  Register
+} from "./pages";
 import Home from "./pages/Home";
 import { ThemeProvider } from "@mui/material/styles";
 import { MyTheme } from "./theme/MyTheme";
@@ -21,8 +29,16 @@ const router = createBrowserRouter([
         element: <Bookmarks />
       },
       {
-        path: "/courses",
-        element: <Courses />
+        path: "/preview",
+        element: <Preview />
+      },
+      {
+        path: "/register",
+        element: <Register />
+      },
+      {
+        path: "/login",
+        element: <Login />
       },
       {
         path: "/para",
