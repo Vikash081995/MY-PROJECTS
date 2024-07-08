@@ -1,8 +1,17 @@
-import React from 'react'
+import { FormControl, FormGroup, Paper } from "@mui/material"
 
 const Register = () => {
   return (
-    <div>Register</div>
+    
+    <Paper>
+      <form>
+        <FormControl>
+          <FormGroup row>
+
+          </FormGroup>
+        </FormControl>
+      </form>
+    </Paper>
   )
 }
 
