@@ -1,11 +1,22 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import { Toolbar } from "@mui/material";
 
+type LayoutContextValue = {
+  openSidebar: boolean;
+  toggleSidebar: () => void;
+};
+
+export const LayoutContext = createContext<LayoutContextValue | null>(null);
+
 const RootLayout = () => {
-  const [open, setOpen] = useState<boolean>(true);
+  const [openSidebar, setOpenSidebar] = useState<boolean>(false);
+
+  const toggleSidebar = () => {
+    setOpenSidebar(!openSidebar);
+  };
 
   const openStyle = {
     marginLeft: "240px",
@@ -18,15 +29,15 @@ const RootLayout = () => {
   };
 
   return (
-    <div>
+    <LayoutContext.Provider value={{ toggleSidebar, openSidebar }}>
       <header>Second Brain </header>
-      <Navbar open={open} setOpen={setOpen} />
-      <Sidebar open={open} />
-      <section style={open ? openStyle : closeStyle}>
+      <Navbar />
+      <Sidebar />
+      <section style={openSidebar ? openStyle : closeStyle}>
         <Toolbar />
         <Outlet />
       </section>
-    </div>
+    </LayoutContext.Provider>
   );
 };
 

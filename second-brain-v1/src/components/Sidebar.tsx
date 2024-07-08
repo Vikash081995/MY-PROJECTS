@@ -11,6 +11,7 @@ import {
 import { IoBookmarks, IoBookSharp } from "react-icons/io5";
 import { GrProjects } from "react-icons/gr";
 import { FaYoutube } from "react-icons/fa";
+import { useLayoutContext } from "../hooks";
 
 type LinksToPageType = {
   path: string;
@@ -52,11 +53,12 @@ const simpleStyles = {
     backgroundColor: "rgba(120,120,120,0)"
   }
 };
-const Sidebar = ({ open }: { open: boolean }) => {
+const Sidebar = () => {
+  const { openSidebar } = useLayoutContext();
   return (
     <div>
       <Drawer
-        open={open}
+        open={openSidebar}
         hideBackdrop={true}
         PaperProps={{
           sx: simpleStyles.drawerPaper,

@@ -3,11 +3,9 @@ import { AppBar, Container, Stack, Toolbar, Typography } from "@mui/material";
 import { CiMenuBurger } from "react-icons/ci";
 import { useTheme, Theme } from "@mui/material/styles";
 import {orange } from "@mui/material/colors";
+import { useLayoutContext } from "../hooks";
 
-type NavbarProps = {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-};
+
 
 const themedStyles = (theme: Theme) => {
   return {
@@ -17,7 +15,8 @@ const themedStyles = (theme: Theme) => {
   };
 };
 
-const Navbar = ({ open, setOpen }: NavbarProps) => {
+const Navbar = () => {
+  const {toggleSidebar} =useLayoutContext();
   const theme = useTheme();
 
   return (
@@ -45,7 +44,7 @@ const Navbar = ({ open, setOpen }: NavbarProps) => {
                   fontWeight: "2rem",
                   height: "2rem",
                 }}
-                onClick={() => setOpen(!open)}
+                onClick={() => toggleSidebar()}
               />
               <Typography
                 variant="h6"
