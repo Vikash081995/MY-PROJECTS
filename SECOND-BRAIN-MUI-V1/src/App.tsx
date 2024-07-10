@@ -1,14 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./pages/Layout";
-import ErrorPage from "./pages/Error";
 import {
   Bookmarks,
   Youtube,
-  Courses,
   Para,
   Preview,
   Login,
-  Register
+  Register,
+  Courses,
+  SecondBrainHome,
+  ErrorPage,
+  RootLayout,
+  DashboardLayout
 } from "./pages";
 import Home from "./pages/Home";
 import { ThemeProvider } from "@mui/material/styles";
@@ -24,29 +26,48 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       },
+
       {
-        path: "/bookmarks",
-        element: <Bookmarks />
-      },
-      {
-        path: "/preview",
+        path: "preview",
         element: <Preview />
       },
       {
-        path: "/register",
+        path: "register",
         element: <Register />
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />
       },
       {
-        path: "/para",
-        element: <Para />
-      },
-      {
-        path: "/youtube",
-        element: <Youtube />
+        path: "dashboard",
+        element: <DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element: <SecondBrainHome />
+          },
+          {
+            path: "/bookmarks",
+            element: <Bookmarks />
+          },
+          {
+            path: "/para",
+            element: <Para />
+          },
+          {
+            path: "/bookmarks",
+            element: <Bookmarks />
+          },
+          {
+            path: "/youtube",
+            element: <Youtube />
+          },
+          {
+            path: "/courses",
+            element: <Courses />
+          }
+        ]
       }
     ]
   }

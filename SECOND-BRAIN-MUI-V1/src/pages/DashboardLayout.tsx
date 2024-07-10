@@ -11,7 +11,7 @@ type LayoutContextValue = {
 
 export const LayoutContext = createContext<LayoutContextValue | null>(null);
 
-const RootLayout = () => {
+const DashboardLayout = () => {
   const [openSidebar, setOpenSidebar] = useState<boolean>(false);
 
   const toggleSidebar = () => {
@@ -41,4 +41,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default DashboardLayout;

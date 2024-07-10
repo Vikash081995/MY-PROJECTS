@@ -8,39 +8,10 @@ import {
   ListItemText,
   Toolbar
 } from "@mui/material";
-import { IoBookmarks, IoBookSharp } from "react-icons/io5";
-import { GrProjects } from "react-icons/gr";
-import { FaYoutube } from "react-icons/fa";
+
 import { useLayoutContext } from "../hooks";
 
-type LinksToPageType = {
-  path: string;
-  label: string;
-  icon: any;
-}[];
-
-const LinksToPages: LinksToPageType = [
-  {
-    path: "/bookmarks",
-    label: "Bookmarks",
-    icon: <IoBookmarks />
-  },
-  {
-    path: "/courses",
-    label: "Courses",
-    icon: <IoBookSharp />
-  },
-  {
-    path: "/para",
-    label: "Para",
-    icon: <GrProjects />
-  },
-  {
-    path: "/youtube",
-    label: "Youtube",
-    icon: <FaYoutube />
-  }
-];
+import { pagesRoutes } from "../utils/pagesRoutes";
 
 const drawerWidth = 240;
 
@@ -64,12 +35,11 @@ const Sidebar = () => {
           sx: simpleStyles.drawerPaper,
           elevation: 9
         }}
-        variant="myVariant"
       >
         <Toolbar />
         <Box sx={simpleStyles.drawer} role="presentation">
           <List>
-            {LinksToPages.map(({ path, label, icon }) => {
+            {pagesRoutes.map(({ path, label, icon }) => {
               return (
                 <NavLink to={path}>
                   <ListItem

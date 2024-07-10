@@ -5,3 +5,7 @@ export { default as Bookmarks } from "./Bookmarks/Bookmarks";
 export { default as Register } from "./Register";
 export { default as Preview } from "./Preview";
 export { default as Login } from "./Login";
+export { default as RootLayout } from "./RootLayout";
+export { default as DashboardLayout } from "./Login";
+export { default as SecondBrainHome } from "./SecondBrainHome/SecondBrainHome";
+export { default as ErrorPage } from "./Error";
