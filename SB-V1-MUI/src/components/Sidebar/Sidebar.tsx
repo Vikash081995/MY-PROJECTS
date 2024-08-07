@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 
 import { useLayoutContext } from "../hooks";
+import styles from "./Sidebar.module.scss";
 
 import { pagesRoutes } from "../utils/pagesRoutes";
 

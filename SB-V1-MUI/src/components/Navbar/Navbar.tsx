@@ -2,10 +2,8 @@ import React from "react";
 import { AppBar, Container, Stack, Toolbar, Typography } from "@mui/material";
 import { CiMenuBurger } from "react-icons/ci";
 import { useTheme, Theme } from "@mui/material/styles";
-import {orange } from "@mui/material/colors";
 import { useLayoutContext } from "../hooks";
-
-
+import styles from "./Navbar.module.scss";
 
 const themedStyles = (theme: Theme) => {
   return {
@@ -16,11 +14,11 @@ const themedStyles = (theme: Theme) => {
 };
 
 const Navbar = () => {
-  const {toggleSidebar} =useLayoutContext();
+  const { toggleSidebar } = useLayoutContext();
   const theme = useTheme();
 
   return (
-    <div>
+    <div className={styles.navparent}>
       <AppBar
         position="fixed"
         component={"nav"}
@@ -42,7 +40,7 @@ const Navbar = () => {
                   marginRight: "2rem",
                   marginTop: "0.5rem",
                   fontWeight: "2rem",
-                  height: "2rem",
+                  height: "2rem"
                 }}
                 onClick={() => toggleSidebar()}
               />
