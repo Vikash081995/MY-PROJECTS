@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "./pages/DashboardLayout";
+import RootLayout from "./pages/Dashboard/DashboardLayout";
 import ErrorPage from "./pages/Error";
 import { Bookmarks, Youtube, Courses, Para } from "./pages";
 import Navbar from "./components/Navbar";

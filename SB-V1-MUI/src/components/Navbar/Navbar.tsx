@@ -2,8 +2,8 @@ import React from "react";
 import { AppBar, Container, Stack, Toolbar, Typography } from "@mui/material";
 import { CiMenuBurger } from "react-icons/ci";
 import { useTheme, Theme } from "@mui/material/styles";
-import { useLayoutContext } from "../hooks";
 import styles from "./Navbar.module.scss";
+import { useLayoutContext } from "../../hooks";
 
 const themedStyles = (theme: Theme) => {
   return {
